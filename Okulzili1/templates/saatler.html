@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/style-overide.css">
+
+
+</head>
+<body>
+ <div class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <nav class="col navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+              Tuna Zil Programı
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="navbarContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link"  href="{{ url_for('dashboard') }}">Giriş</a>
+              </li>
+              <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ayarlar
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Saatler</a>
+                        <a class="dropdown-item" href="{{ url_for('zil') }}">Zil</a>
+                    </div>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('toren') }}">Tören</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-danger" href="{{ url_for('hello_world') }}" >Çıkış</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+   <div class="container">
+       <div class="row">
+        <div class="col-md-8">
+            <h1>Haftanın Saatleri</h1>
+        </div>
+        <div class="col-md-4 text-right">
+            <button id="kaydet-btn" class="btn btn-primary">Kaydet</button>
+        </div>
+    </div>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'pazartesi' %}active{% endif %}" id="pazartesi-tab" data-toggle="pill" href="#pazartesi">Pazartesi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'sali' %}active{% endif %}" id="sali-tab" data-toggle="pill" href="#sali">Salı</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'carsamba' %}active{% endif %}" id="carsamba-tab" data-toggle="pill" href="#carsamba">Çarşamba</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'persembe' %}active{% endif %}" id="persembe-tab" data-toggle="pill" href="#persembe">Perşembe</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'cuma' %}active{% endif %}" id="cuma-tab" data-toggle="pill" href="#cuma">Cuma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'cumartesi' %}active{% endif %}" id="cumartesi-tab" data-toggle="pill" href="#cumartesi">Cumartesi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if active_tab == 'pazar' %}active{% endif %}" id="pazar-tab" data-toggle="pill" href="#pazar">Pazar</a>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4">
+            <div class="tab-pane fade {% if active_tab == 'pazartesi' %}show active{% endif %}" id="pazartesi">
+                <h3>Pazartesi</h3>
+        </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Saat</th>
+                            <th>Giriş Zili</th>
+                            <th>Öğretmen Zili</th>
+                            <th>Çıkış Zili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(1, 21) %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <div class="tab-pane fade {% if active_tab == 'sali' %}show active{% endif %}" id="sali">
+                <h3>Salı</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Saat</th>
+                            <th>Giriş Zili</th>
+                            <th>Öğretmen Zili</th>
+                            <th>Çıkış Zili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(1, 21) %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+           <div class="tab-pane fade {% if active_tab == 'carsamba' %}show active{% endif %}" id="carsamba">
+                <h3>Çarşamba</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Saat</th>
+                            <th>Giriş Zili</th>
+                            <th>Öğretmen Zili</th>
+                            <th>Çıkış Zili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(1, 21) %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <div class="tab-pane fade {% if active_tab == 'persembe' %}show active{% endif %}" id="persembe">
+                <h3>Perşembe</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Saat</th>
+                            <th>Giriş Zili</th>
+                            <th>Öğretmen Zili</th>
+                            <th>Çıkış Zili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(1, 21) %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <div class="tab-pane fade {% if active_tab == 'cuma' %}show active{% endif %}" id="cuma">
+                <h3>Cuma</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Saat</th>
+                            <th>Giriş Zili</th>
+                            <th>Öğretmen Zili</th>
+                            <th>Çıkış Zili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(1, 21) %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <div class="tab-pane fade {% if active_tab == 'cumartesi' %}show active{% endif %}" id="cumartesi">
+                <h3>Cumartesi</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Saat</th>
+                            <th>Giriş Zili</th>
+                            <th>Öğretmen Zili</th>
+                            <th>Çıkış Zili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(1, 21) %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <div class="tab-pane fade {% if active_tab == 'pazar' %}show active{% endif %}" id="pazar">
+                <h3>Pazar</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Saat</th>
+                            <th>Giriş Zili</th>
+                            <th>Öğretmen Zili</th>
+                            <th>Çıkış Zili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(1, 21) %}
+                            <tr>
+                                <td>{{ i }}</td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                                <td><input type="time" class="form-control"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- Diğer günler için benzer tab-pane yapıları ekleyebilirsiniz -->
+        </div>
+
+
+ <script src="../static/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../static/js/popper.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

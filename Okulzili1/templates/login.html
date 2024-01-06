@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Bell System</title>
+
+  <link rel="stylesheet" href="../static/css/style.css" />
+    <style>
+        .needs-validation {
+        }
+    </style>
+</head>
+
+<body>
+  <div class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <nav class="col navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="{{ url_for('hello_world') }}">
+            Tuna Okul Zili
+          </a>
+        </nav>
+      </div>
+    </div>    
+  </div>
+
+  <div class="splash-container">
+    <div class="card card-border-color card-border-color-success">
+      <div class="card-header"><span class="splash-description">Kullanıcı bilgilerinizi giriniz.</span></div>
+      <div class="card-body">
+        <form class="needs-validation" novalidate="" method="get" action="{{ url_for('dashboard') }}" >
+          <div class="form-group">
+            <input class="form-control" id="username" type="text" placeholder="Kullanıcı Adı" autocomplete="off" required>
+            <div class="invalid-feedback">
+              Kullanıcı adınızı giriniz
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" id="password" type="password" placeholder="Şifre" required>
+            <div class="invalid-feedback">
+              Please enter your password.
+            </div>
+          </div>
+          <div class="form-group row login-tools">
+            <div class="col-6 login-remember">
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" id="checkbox1">
+                <label class="custom-control-label" for="checkbox1">Beni hatırla</label>
+              </div>
+            </div>
+            <div class="col-6">
+              Şifremi Unuttum
+            </div>
+          </div>
+          <div class="form-group login-submit">
+            <input class="btn btn-success btn-xl" type="submit" value="Giriş Yap" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="../static/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../static/js/popper.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/form-validation.js"></script>
+</body>
+
+</html>
